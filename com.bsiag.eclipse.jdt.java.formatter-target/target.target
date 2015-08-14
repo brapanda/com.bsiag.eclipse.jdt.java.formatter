@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="Eclipse Mars" sequenceNumber="2">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="slicer" includeSource="false" type="InstallableUnit">
+<unit id="org.eclipse.sdk.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/releases/mars/201506241002"/>
+</location>
+</locations>
+</target>

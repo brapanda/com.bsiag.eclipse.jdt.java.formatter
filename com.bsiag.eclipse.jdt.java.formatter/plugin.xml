@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.jdt.core.javaFormatter">
+      <javaFormatter
+            class="com.bsiag.eclipse.jdt.java.formatter.DefaultCodeFormatter"
+            id="com.bsiag.eclipse.jdt.java.formatter.javaFormatter"
+            name="Latest Formatter">
+      </javaFormatter>
+   </extension>
+</plugin>

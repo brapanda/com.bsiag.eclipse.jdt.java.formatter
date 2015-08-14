@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+
+     LatestJavaFormatter.build    
+     Build Source from the eclipse.jdt.core git repository.
+     
+     Checkout the repository and set in the property "jdt.git.repo" the path
+     to this repository.
+
+     ====================================================================== -->
+<project name="LatestJavaFormatter.build" default="default">
+    <description>
+            Build Source from the eclipse.jdt.core git repository.
+    </description>
+
+    <property name="jdt.git.repo" value="../../eclipse.jdt.core"/>
+    <property name="dest.project" value="../com.bsiag.eclipse.jdt.java.formatter"/>
+
+    <!-- ================================= 
+          target: default
+         ================================= -->
+    <target name="default" depends="clean" description="Build Source from the eclipse.jdt.core git repository.">
+        <property name="dest.src.dir" value="${dest.project}/src/com/bsiag/eclipse/jdt/java/formatter"/>
+        <copy todir="${dest.src.dir}">
+            <fileset dir="${jdt.git.repo}/org.eclipse.jdt.core/formatter/org/eclipse/jdt/internal/formatter">
+                <include name="**/*.java"/>
+                <exclude name="old/CodeFormatter.java"/>
+            </fileset>
+        </copy>
+        <replace dir="${dest.src.dir}" token="package org.eclipse.jdt.internal.formatter" value="package com.bsiag.eclipse.jdt.java.formatter" >
+            <include name="**/*.java"/>
+        </replace>
+        <replace dir="${dest.src.dir}" token="import org.eclipse.jdt.internal.formatter." value="import com.bsiag.eclipse.jdt.java.formatter." >
+            <include name="**/*.java"/>
+        </replace>
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: clean
+         - - - - - - - - - - - - - - - - - -->
+    <target name="clean">
+        <delete>
+        <fileset dir="${dest.project}/src">
+            <include name="**/*.java"/>
+        </fileset>
+    </delete>
+
+    </target>
+
+</project>
